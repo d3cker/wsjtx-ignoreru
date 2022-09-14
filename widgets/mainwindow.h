@@ -276,6 +276,8 @@ private slots:
   void on_cbMenus_toggled(bool b);
   void on_cbCQonly_toggled(bool b);
   void on_cbFirst_toggled(bool b);
+//SP6XD
+//  void on_ignoreRu_toggled(bool b);
   void on_cbAutoSeq_toggled(bool b);
   void networkError (QString const&);
   void on_ClrAvgButton_clicked();

@@ -7,7 +7,7 @@ in the source code.
 ## Features
 - CQ answers from ^(R[A-Z1-9]|U[A-I])+ callsigns are ignored
 - reply to CQ from ^(R[A-Z1-9]|U[A-I])+ is ignored
-- Manula clicks (calls) to ^(R[A-Z1-9]|U[A-I])+ stations are ignored
+- Manual clicks (calls) to ^(R[A-Z1-9]|U[A-I])+ stations are ignored
 Just like that.
 
 ## Note

@@ -1234,7 +1234,7 @@ When not checked you can view the calibration results.</string>
                    </layout>
                   </item>
 
-                  <item row="3" column="0">
+                  <item row="4" column="0">
                    <layout class="QVBoxLayout" name="verticalLayout_15">
                     <item>
                      <widget class="QCheckBox" name="ignoreRu">
