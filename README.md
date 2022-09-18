@@ -1,21 +1,21 @@
-# WSJT-X 2.5.4 - Ignore ruSSians feature
+# WSJT-X 2.5.4 - Regex ignore filter 
 
-In order to apply this change just overwrite contents of `widgets/` folder.
-To find out what has changed execute a diff or search for `SP6XD` comments
-in the source code.
+In order to apply this change just overwrite contents of root and `widgets/` 
+folders. To find out what has changed execute a diff or search for `SP6XD` 
+comments in the source code.
 
 ## Features
-- CQ answers from ^(R[A-Z1-9]|U[A-I])+ callsigns are ignored
-- reply to CQ from ^(R[A-Z1-9]|U[A-I])+ is ignored
-- Manual clicks (calls) to ^(R[A-Z1-9]|U[A-I])+ stations are ignored
-Just like that.
+- Added option: Setup -> RX/TX Macros -> RX regex ignore filter
+- CQ answers from matched callsigns are ignored
+- reply to CQ from matched callsigns are ignored
+- Manual clicks (calls) to matched stations are ignored
+Just like that. Tested during WW DIGI contest.
 
 ## Note
 
 I have to confess that I'm not a software developer and this patch is just 
 a dirty hack to make it possible to make auto QSO with all except Russians.
-
-## Note 2
+To filter out RU stations use this filter: **^(R[A-Z1-9]|U[A-I])+**
 I know that this is not part of "ham spirit" to make such a software but...
 let's face it. One does not simply attack its neighbour and expects others
 to stay quiet. As a Pole I know my country has long and cloudy history with 

@@ -1125,7 +1125,7 @@ void MainWindow::writeSettings()
   m_settings->setValue ("ContestLogDisplayed", m_contestLogWindow && m_contestLogWindow->isVisible ());
   m_settings->setValue("CallFirst",ui->cbFirst->isChecked());
 //SP6XD:
-  m_settings->setValue("IgnoreruSSians",ui->ignoreRu->isChecked());
+  m_settings->setValue("IgnoreRegex",ui->ignoreRegex->isChecked());
   m_settings->setValue("HoundSort",ui->comboBoxHoundSort->currentIndex());
   m_settings->setValue("FoxNlist",ui->sbNlist->value());
   m_settings->setValue("FoxNslots",ui->sbNslots->value());
@@ -1221,7 +1221,7 @@ void MainWindow::readSettings()
   auto displayContestLog = m_settings->value ("ContestLogDisplayed", false).toBool ();
   ui->cbFirst->setChecked(m_settings->value("CallFirst",true).toBool());
 //SP6XD:
-  ui->ignoreRu->setChecked(m_settings->value("IgnoreruSSians",true).toBool());
+  ui->ignoreRegex->setChecked(m_settings->value("IgnoreRegex",true).toBool());
   ui->comboBoxHoundSort->setCurrentIndex(m_settings->value("HoundSort",3).toInt());
   ui->sbNlist->setValue(m_settings->value("FoxNlist",12).toInt());
   m_Nslots=m_settings->value("FoxNslots",5).toInt();
@@ -4839,13 +4839,16 @@ void MainWindow::processMessage (DecodedText const& message, Qt::KeyboardModifie
   }
 
   //SP6XD I found this place as the best for extracting remote callsign
-  //So, for now. If it's RU then just resturn. maybe some list in the future
-  if ( ui->ignoreRu->isChecked() && hiscall.contains(QRegularExpression {"^(R[A-Z1-9]|U[A-I])+"}) ) {
-    //I should use qDebug()... but force of habit XD
-    printf("Ignoring %s\n ", hiscall.toStdString().c_str());
+  //and decide wheter to answer or not
+  if ( ui->ignoreRegex->isChecked() && !m_config.regex_filter().isEmpty() && hiscall.contains(QRegularExpression(m_config.regex_filter())) ) {
+    ui->lastIgnored->setStyleSheet("QLabel {background-color: red; color: white;}");
+    ui->lastIgnored->setText(hiscall);
+    qDebug () << "Ignoring station:" << hiscall << " grid:" << hisgrid;
+    //printf("Ignoring %s\n ", hiscall.toStdString().c_str());
     return;
   } else {
-    printf("Processing %s\n ", hiscall.toStdString().c_str());
+    qDebug () << "Processing station:" << hiscall << " grid:" << hisgrid;
+    //printf("Processing %s\n ", hiscall.toStdString().c_str());
   }
 
   QStringList w=message.clean_string ().mid(22).remove("<").remove(">").split(" ",SkipEmptyParts);

@@ -1237,15 +1237,46 @@ When not checked you can view the calibration results.</string>
                   <item row="4" column="0">
                    <layout class="QVBoxLayout" name="verticalLayout_15">
                     <item>
-                     <widget class="QCheckBox" name="ignoreRu">
+                     <widget class="QCheckBox" name="ignoreRegex">
                       <property name="toolTip">
-                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ignore calls from nazi russians.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ignore calls from callsigns matching regex.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
                       <property name="accessibleDescription">
-                       <string>Check to ignore call from russians</string>
+                       <string>Check to ignore calls from callsigns matching regex.</string>
                       </property>
                       <property name="text">
-                       <string>Ignore ruSSians</string>
+                       <string>Regex ignore filter</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+
+                  <item row="5" column="0">
+                   <layout class="QHBoxLayout" name="verticalLayout_16">
+                    <item>
+                    <widget class="QLabel" name="ignored_label">
+                     <property name="text">
+                      <string>Last ignored</string>
+                     </property>
+                     <property name="toolTip">
+                      <string>Callsign of last ignored station</string>
+                     </property>
+                    </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="lastIgnored">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="toolTip">
+                       <string>Callsign of last ignored station</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
                       </property>
                      </widget>
                     </item>
@@ -3565,7 +3596,7 @@ Yellow when too low</string>
   <tabstop>cbFast9</tabstop>
   <tabstop>cbAutoSeq</tabstop>
   <tabstop>cbFirst</tabstop>
-  <tabstop>ignoreRu</tabstop>
+  <tabstop>ignoreRegex</tabstop>
   <tabstop>cbTx6</tabstop>
   <tabstop>cbSWL</tabstop>
   <tabstop>pbBestSP</tabstop>
