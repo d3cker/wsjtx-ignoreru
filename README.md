@@ -1,3 +1,5 @@
+# This repository is no longer maintained. Please visit [https://github.com/d3cker/wsjtx-regex-filter](https://github.com/d3cker/wsjtx-regex-filter) for new GitHub Actions powered version. 
+
 # WSJT-X 2.5.4 - Regex ignore filter 
 
 In order to apply this change just overwrite contents of root and `widgets/` 
